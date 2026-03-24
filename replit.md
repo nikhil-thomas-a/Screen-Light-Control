@@ -91,6 +91,12 @@ Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used b
 
 Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
 
+## GitHub Integration
+
+The user wants to push their code to GitHub. The Replit GitHub integration was dismissed by the user. To set this up in a future session, either:
+1. Re-attempt the GitHub connector integration via Replit integrations (connector:ccfg_github_01K4B9XD3VRVD2F99YM91YTCAF)
+2. Ask the user for a GitHub Personal Access Token and store it as a secret (GITHUB_TOKEN), then use the GitHub API or git commands directly
+
 ### `scripts` (`@workspace/scripts`)
 
 Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.
