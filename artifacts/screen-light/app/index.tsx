@@ -1,5 +1,6 @@
 import { Feather } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
+import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { memo, useCallback, useRef, useState } from "react";
 import {
@@ -322,6 +323,9 @@ const dd = StyleSheet.create({
 export default function ScreenLight() {
   const insets = useSafeAreaInsets();
 
+  // Preload Feather icon font non-blockingly so icons render on first paint on device
+  useFonts(Feather.font);
+
   // ── Animated values ── drive visuals; never cause parent re-renders on their own
   const warmthAnim     = useRef(new Animated.Value(0.25)).current;
   const brightnessAnim = useRef(new Animated.Value(1.0)).current;
@@ -506,6 +510,7 @@ export default function ScreenLight() {
                 label="Warmth"
                 sublabel={warmthLabel}
                 dark={isDark}
+                onDrag={handleWarmthChange}
                 onRelease={handleWarmthRelease}
               />
 
